@@ -39,6 +39,7 @@ class AnalysisService:
             "linguistic_features": extracted_features["linguistic"],
             "normalized_features": normalized_features,
             "scoring": scoring,
+            "phrase_features": extracted_features["phrase"],
         }
 
 
