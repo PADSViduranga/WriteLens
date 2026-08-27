@@ -46,6 +46,11 @@ class ReliabilityResult(BaseModel):
     level: str
 
 
+class ScoringResult(BaseModel):
+    score: float
+    signals: dict[str, float]
+
+
 class AnalysisResponse(BaseModel):
     status: str
     message: str
@@ -56,3 +61,4 @@ class AnalysisResponse(BaseModel):
     statistical_features: StatisticalFeatures
     linguistic_features: LinguisticFeatures
     normalized_features: NormalizedFeatures
+    scoring: ScoringResult
