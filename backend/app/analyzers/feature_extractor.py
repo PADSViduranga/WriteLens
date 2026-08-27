@@ -1,4 +1,5 @@
 from app.analyzers.linguistic_analyzer import linguistic_analyzer
+from app.analyzers.phrase_analyzer import phrase_analyzer
 from app.analyzers.statistical_analyzer import statistical_analyzer
 from app.processors.text_processor import text_processor
 
@@ -20,6 +21,10 @@ class FeatureExtractor:
             sentences=processed_text["sentences"],
         )
 
+        phrase_features = phrase_analyzer.analyze(
+            words=processed_text["words"],
+        )
+
         return {
             "text": processed_text["text"],
             "word_count": processed_text["word_count"],
@@ -27,6 +32,7 @@ class FeatureExtractor:
             "paragraph_count": processed_text["paragraph_count"],
             "statistical": statistical_features,
             "linguistic": linguistic_features,
+            "phrase": phrase_features,
         }
 
 

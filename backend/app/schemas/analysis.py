@@ -50,6 +50,13 @@ class ScoringResult(BaseModel):
     score: float
     signals: dict[str, float]
 
+class PhraseFeatures(BaseModel):
+    bigram_count: int
+    trigram_count: int
+    repeated_bigram_count: int
+    repeated_trigram_count: int
+    bigram_repetition_ratio: float
+    trigram_repetition_ratio: float
 
 class AnalysisResponse(BaseModel):
     status: str
@@ -62,3 +69,4 @@ class AnalysisResponse(BaseModel):
     linguistic_features: LinguisticFeatures
     normalized_features: NormalizedFeatures
     scoring: ScoringResult
+    phrase_features: PhraseFeatures
